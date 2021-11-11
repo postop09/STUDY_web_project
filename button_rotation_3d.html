@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>button</title>
+  <style>
+    /* 기존 slide_rotation을 활용해서, 버튼 만들기! */
+    /* 풀이과정
+      1. 직사각형의 버튼을 구상
+      2. 4개의 면을 만듦
+      3. 축을 가로로 설정!
+      4. 이번에는 X축으로 돌아가는 상자이므로 면을 rotateX(90deg); 기준으로 눕힘.
+      5. 축이 가로기때문에 Z값을 height값으로 계산해야함.
+      6. 높이가 50px, 정중앙인 축으로부터 Z값은 25px: translateZ(25px);
+      7. X축으로 회전하는 효과를 주면 완성! 
+      8. 추가로 클릭하면 살짝 흔들리게 X/Y축값 부여 */
+
+    /* 배운점
+      1. 두 번 활용해보니 생각하는 효과를 적용하기 수월했다.
+      2. 간단하지만 수학적으로 접근하는 힘!
+      3. 몰입과 재미! */
+
+    /* 느낀점
+      1. 이런 다양한 움직임의 즐길 수 있는 콘텐츠로 유저들을 재미있고 몰입되게 만드는 개발자와
+      2. 웹표준을 준수하고 효율적이며 유저친화적인 개발자!
+      3. 조금 다르기도, 닮기도 했다. 재미와 아이디어를 잃지 말고 다양한 유저들을 위하는 개발자가 되자! */
+      
+    body {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: antiquewhite;
+    }
+    .axis {
+      /* border: 1px solid red; */
+      border-style: none;
+      background: none;
+      width: 200px;
+      height: 50px;
+      perspective: 400px;
+      cursor: pointer;
+      position: relative;
+    }
+    .btn {
+      /* border: 1px solid red; */
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: all .5s;
+      font-size: 42px;
+    }
+    .btn:hover {
+      transform: rotateX(360deg);
+    }
+    .btn:active {
+      transform: rotateX(350deg) rotateY(5deg);
+      transition: all .1s;
+    }
+    .btn div[class^=btn] {
+      position: absolute;
+      border: 1px solid black;
+      width: 200px;
+      height: 50px;
+      text-align: center;
+    }
+    .btn1 {
+      transform: rotateX(0deg) translateZ(25px);
+      background-color: red;
+      color: whitesmoke;
+    }
+    .btn2 {
+      transform: rotateX(90deg) translateZ(25px);
+      background-color: green;
+      color: whitesmoke;
+    }
+    .btn3 {
+      transform: rotateX(180deg) translateZ(25px);
+      background-color: blue;
+      color: whitesmoke;
+    }
+    .btn4 {
+      transform: rotateX(270deg) translateZ(25px);
+      background-color: purple;
+      color: whitesmoke;
+    }
+  </style>
+</head>
+<body>
+  <button class="axis">
+    <div class="btn">
+      <div class="btn1">Click Me!!</div>
+      <div class="btn2">Click Me!!</div>
+      <div class="btn3">Click Me!!</div>
+      <div class="btn4">Click Me!!</div>
+    </div>
+  </button>
+</body>
+</html>
