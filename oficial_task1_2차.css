@@ -1,0 +1,245 @@
+/* 기본 스타일 */
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  text-indent: -9999px;
+}
+.sr-link {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+/* 웹 접근성 면에서 효과적인 바로가기 스타일 작성 */
+.sr-link:focus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 25px;
+  font-size: 22px;
+  text-align: center;
+  color: whitesmoke;
+  background-color: darkslateblue;
+}
+.img-size {
+  width: 180px;
+  height: 250px;
+}
+.strong {
+  font-weight: 900;
+  color: black;
+}
+.sl-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.multi-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 헤더 스타일 */
+.container {
+  border: 1px solid gray;
+  border-radius: 15px;
+  width: 1060px;
+  height: 1170px;
+  margin: 86px auto 0;
+}
+header > h2 {
+  border-bottom: 2px solid gray;
+  width: 650px;
+  margin: 0 auto;
+  padding: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+header ul {
+  width: fit-content;
+  margin: 28px auto;
+  text-align: center;
+  overflow: hidden;
+}
+header ul li {
+  float: left;
+}
+header ul li a {
+  font-weight: 900;
+  color: gray;
+}
+.movie-ready {
+  margin: 0 60px;
+}
+
+/* 영화 목록 스타일 */
+#movie-on {
+  border: 2px solid gray;
+  border-radius: 10px;
+  width: 1003px;
+  margin: 30px auto;
+  padding: 20px 19px;
+}
+.movie-on-list ul {
+  overflow: hidden;
+}
+.movie-on-list ul li {
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 0 5px gray;
+  width: 220px;
+  margin: 10px;
+  float: left;
+}
+.movie-on-list article {
+  padding: 20px;
+}
+.movie-on-list article strong {
+  font-weight: 900;
+  margin: 10px 0px;
+  display: inline-block;
+}
+.movie-on-list article img {
+  border-radius: 10px;
+}
+
+/* 예매하기/예고편 스타일 */
+.movie-on-list li > a {
+  border-top: 1px solid gray;
+  width: 50%;
+  padding: 10px;
+  float: left;
+  text-align: center;
+}
+.movie-on-list li .movie-reserve {
+  border-right: 1px solid gray;
+}
+.movie-on-list li .movie-preview::before {
+  content: '';
+  display: inline-block;
+  background-image: url('images/아이콘_재생.png');
+  background-size: cover;
+  vertical-align: bottom;
+  width:15px;
+  height: 15px;
+  margin-right: 3px;
+}
+
+/* 영화 상세내용 스타일 */
+article dl dt,
+article dl dd {
+  font-size: 13px;
+  display: inline-block;
+}
+article dl dt {
+  font-weight: lighter;
+  color: gray;
+}
+.movie-info-star dt::after {
+  content: '';
+  display: inline-block;
+  background-image: url('images/별점이미지.png');
+  vertical-align: bottom;
+  width: 14px;
+  height: 13px;
+  margin-left: 5px;
+}
+.movie-info {
+  padding-bottom: 5px;
+  overflow: hidden;
+}
+.movie-info-genre {
+  float: left;
+}
+.movie-info-star {
+  float: right;
+}
+.movie-info-two div + div {
+  padding-top: 5px;
+}
+.movie-info-two .sl-ellipsis {
+  width: 150px;
+  float: right;
+  margin-top: 3px;
+}
+
+/* 기업 정보 */
+#company_info {
+  margin-top: 135px;
+  background-color: #F2F2F2;
+}
+#company_info strong{
+  border-bottom: 1px solid gray;
+  display: block;
+  width: 1190px;
+  margin: 0 auto;
+  padding: 53px 0 42px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.company_info_detail dl dt,
+.company_info_detail dl dd {
+  font-size: 14px;
+  display: inline-block;
+}
+.company_info_detail dt {
+  font-weight: 900;
+}
+.company_info_detail dd:not(.strong) {
+  color: gray;
+}
+.company_info_detail dd:not(dd:last-child)::after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background-color: gray;
+  vertical-align: bottom;
+  margin-left: 10px;
+  margin-right: 5px
+}
+.company_info_detail {
+  width: 1190px;
+  margin: 36px auto 38px;
+  overflow: hidden;
+}
+.company_info_detail dl {
+  float: left;
+}
+.company_info_detail small {
+  font-size: 14px;
+  float: right;
+}
+.sns-box {
+  width: 1190px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 154px;
+  overflow: hidden;
+}
+.sns-box li{
+  float: right;
+}
+.sns-box li a{
+  margin-left: 22px;
+}
+.sns-link {
+  width: 20px;
+  height: 20px;
+}
+

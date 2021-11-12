@@ -1,0 +1,379 @@
+<!-- 개선방안
+  1. MDN참고 <article>에 헤딩 필요성 확인
+  2. MDN참고, ellipsis 확인 및 코드 작성
+  3. 동료와의 코드리뷰
+  4. 강사님의 수업을 들으며 참고할 점 정리
+  5. 코드 2차 작성, 질문 정리 후 멘토님에게 feedback 
+  6. 최종 코딩 -->
+
+  <!-- 배운점/느낀점
+  1. <section> 뿐만 아니라 <article>에도 헤딩이 있어야한다!
+  2. <dl>태그의 사용성: 레이아웃을 위한 의미없는 묶음처리는 <div>를 활용해도 괜찮다!
+  3. 바로가기 링크 추가/ 하지만 여기 페이지에서는 불필요할지도?
+  4. 바로가기 링크가 포커싱되면 화면에 표시될 수 있도록! 직관적인 마크업을 만들어주는 스타일 요령!
+  5. ellipsis 만들기: overflow: hidden; white-space: nowrap; text-overflow: ellipsis; 속성값
+  6. 적절한 태그의 사용, 눈에 보이지 않는 기능, 더 좋은 마크업과 CSS사용을 계속해서 고민하고 생각하자. -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃 구현 프로젝트</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="oficial_task1_2차.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- 바로가기 : 스크린리더기/접근성 -->
+  <div>
+    <a class="sr-link" href="#movie-on">상영중인 영화목록 바로가기</a>
+    <a class="sr-link" href="#company_info">회사정보 바로가기</a>
+  </div>
+  <h1 class="sr">정글 시네마</h1>
+  <div class="container">
+    <header>
+      <h2>정글 시네마 영화 목록</h2> <!-- 타이틀 : 접근성 -->
+      <ul>
+        <li><a class="strong" href="#">현재상영영화</a></li>
+        <li class="movie-ready"><a href="">개봉예정영화</a></li>
+        <li><a href="">박스오피스</a></li>
+      </ul>
+    </header>
+    <main id="movie-on">
+      <section class="movie-on-list">
+        <h2 class="sr">현재상영영화</h2> <!-- 타이틀 : 접근성 -->
+        <ul>
+          <!-- 목록1 : 위니브 월드 -->
+          <li>
+            <article>
+              <h3 class="sr">영화 정보 상세 보기</h3> <!-- 타이틀 : 접근성 -->
+              <a class="strong" href="">
+                <!-- '위니브 월드 :새로운 시대' 상세 정보 페이지로 이동합니다. -->
+                <!-- 컨텐츠 글씨는 margin/padding 값으로 조절하는 것보다, line-height로 많이 준다. -->
+                <img class="img-size" src="images/포스터_위니브월드.png" alt="위니브 월드 : 새로운 시대"> <!-- 영화를 클릭하면 상세정보 보기로 넘어가야 하기 때문에 대체 텍스트를 넣어주는 것이 적절해 보인다 -->
+                <strong>위니브 월드 : 새로운 시대</strong> <!-- <h>태그는 부적절 -->
+              </a>
+              <!-- Question 1: <dl>태그 둘로 나눠서 하는게 구조잡기 편리한데, 의미상으로 조금 애매 한가? -->
+              <!-- 두개의 다른 내용의 데이터 리스트가 있는 느낌? -->
+              <dl class="movie-info">
+                <div class="movie-info-genre">
+                  <dt>개요</dt>
+                  <dd>판타지</dd>
+                </div>
+                <div class="movie-info-star">
+                  <dt>평점</dt>
+                  <dd>9.05</dd>
+                </div>
+              </dl>
+              <dl class="movie-info-two">
+                <div>
+                  <dt>개봉</dt>
+                  <dd>2021.03.27</dd>
+                </div>
+                <div>
+                  <dt>출연</dt>
+                  <dd class="sl-ellipsis">라이캣, 소울곰, 게리씨, 파이, 썬, 자바독, 빙키, 뮤라</dd> <!-- 문제 해결 과정 : MDN문서 참고, 싱글/멀티 속성 하나씩 시험하면서 해결 -->
+                </div>
+              </dl>
+              <!-- Answer 1: 같은 콘텐츠이기 때문에 하나의 <dl>로 묶어주고 레이아웃을 위해 <div>로 묶어주는 것이 타당해보임 -->
+              <!-- 
+              <dl class="movie-info">
+                <div>
+                  <div class="movie-info-genre">
+                    <dt>개요</dt>
+                    <dd>판타지</dd>
+                  </div>
+                  <div class="movie-info-star">
+                    <dt>평점</dt>
+                    <dd>9.05</dd>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <dt>개봉</dt>
+                    <dd>2021.03.27</dd>
+                  </div>
+                  <div>
+                    <dt>출연</dt>
+                    <dd class="sl-ellipsis">라이캣, 소울곰, 게리씨, 파이, 썬, 자바독, 빙키, 뮤라</dd>
+                  </div>
+                </div>
+              </dl> -->
+            </article> <!-- <div> 묶음 제거 -->
+            <a class="movie-reserve" href="">예매하기</a> <!-- 줄바꿈은'개행' 으로 인식한다. <a>태그를 붙이거나, float값을 주거나. -->
+            <a class="movie-preview" href="">예고편</a>
+          </li>
+          <!-- 목록2 : 눈떠보니 코딩테스트 -->
+          <li>
+            <article>
+              <h3 class="sr">영화 정보 상세 보기</h3> <!-- 타이틀 : 접근성 -->
+              <a href="">
+                <img class="img-size" src="images/포스터_눈떠보니자바.png" alt="눈떠보니 코딩테스트">
+                <strong>눈떠보니 코딩테스트</strong>
+              </a>
+              <dl class="movie-info">
+                <div class="movie-info-genre">
+                  <dt>개요</dt>
+                  <dd>스릴러</dd>
+                </div>
+                <div class="movie-info-star">
+                  <dt>평점</dt>
+                  <dd>8.25</dd>
+                </div>
+              </dl>
+              <dl class="movie-info-two">
+                <div>
+                  <dt>개봉</dt>
+                  <dd>2021.04.01</dd>
+                </div>
+                <div>
+                  <dt>출연</dt>
+                  <dd>자바독, 게리씨, 빙키</dd>
+                </div>
+              </dl>
+            </article>
+            <a class="movie-reserve" href="">예매하기</a>
+            <a class="movie-preview" href="">예고편</a>
+          </li>
+          <!-- 목록3 : 파이썬 부트캠프 -->
+          <li>
+            <article>
+              <h3 class="sr">영화 정보 상세 보기</h3> <!-- 타이틀 : 접근성 -->
+              <a href="">
+                <img class="img-size" src="images/포스터_부트캠프.jpg" alt="파이썬 부트캠프">
+                <strong>파이썬 부트캠프</strong>
+              </a>
+              <dl class="movie-info">
+                <div class="movie-info-genre">
+                  <dt>개요</dt>
+                  <dd>드라마</dd>
+                </div>
+                <div class="movie-info-star">
+                  <dt>평점</dt>
+                  <dd>8.77</dd>
+                </div>
+              </dl>
+              <dl class="movie-info-two">
+                <div>
+                  <dt>개봉</dt>
+                  <dd>2021.04.12</dd>
+                </div>
+                <div>
+                  <dt>출연</dt>
+                  <dd>캣, 파이, 썬, 뮤라</dd>
+                </div>
+              </dl>
+            </article>
+            <a class="movie-reserve" href="">예매하기</a> 
+            <a class="movie-preview" href="">예고편</a>
+          </li>
+          <!-- 목록4 : 파이큐티의 사랑 -->
+          <li>
+            <article>
+              <h3 class="sr">영화 정보 상세 보기</h3> <!-- 타이틀 : 접근성 -->
+              <a href="">
+                <img class="img-size" src="images/포스터_파이큐티.png" alt="파이큐티의 사랑">
+                <strong>파이큐티의 사랑</strong>
+              </a>
+              <dl class="movie-info">
+                <div class="movie-info-genre">
+                  <dt>개요</dt>
+                  <dd>로맨스</dd>
+                </div>
+                <div class="movie-info-star">
+                  <dt>평점</dt>
+                  <dd>8.81</dd>
+                </div>
+              </dl>
+              <dl class="movie-info-two">
+                <div>
+                  <dt>개봉</dt>
+                  <dd>2021.04.08</dd>
+                </div>
+                <div>
+                  <dt>출연</dt>
+                  <dd>파이썬, 큐티</dd>
+                </div>
+              </dl>
+            </article>
+            <a class="movie-reserve" href="">예매하기</a>
+            <a class="movie-preview" href="">예고편</a>
+          </li>
+          <!-- 목록5 : NGINX의 춤 -->
+          <li>
+            <article>
+              <h3 class="sr">영화 정보 상세 보기</h3> <!-- 타이틀 : 접근성 -->
+              <a href="">
+                <img class="img-size" src="images/포스터_앤진액스.png" alt="NGINX의 춤">
+                <strong>NGINX의 춤</strong>
+              </a>
+              <dl class="movie-info">
+                <div class="movie-info-genre">
+                  <dt>개요</dt>
+                  <dd>드라마</dd>
+                </div>
+                <div class="movie-info-star">
+                  <dt>평점</dt>
+                  <dd>9.88</dd>
+                </div>
+              </dl>
+              <dl class="movie-info-two">
+                <div>
+                  <dt>개봉</dt>
+                  <dd>2021.04.15</dd>
+                </div>
+                <div>
+                  <dt>출연</dt>
+                  <dd>NGINX, 노션</dd>
+                </div>
+              </dl>
+            </article>
+            <a class="movie-reserve" href="">예매하기</a>
+            <a class="movie-preview" href="">예고편</a>
+          </li>
+          <!-- 목록6 : 어쩌다 밋업 -->
+          <li>
+            <article>
+              <h3 class="sr">영화 정보 상세 보기</h3> <!-- 타이틀 : 접근성 -->
+              <a href="">
+                <img class="img-size" src="images/포스터_어쩌다밋업.png" alt="어쩌다 밋업">
+                <strong>어쩌다 밋업</strong>
+              </a>
+              <dl class="movie-info">
+                <div class="movie-info-genre">
+                  <dt>개요</dt>
+                  <dd>드라마</dd>
+                </div>
+                <div class="movie-info-star">
+                  <dt>평점</dt>
+                  <dd>9.25</dd>
+                </div>
+              </dl>
+              <dl class="movie-info-two">
+                <div>
+                  <dt>개봉</dt>
+                  <dd>2021.04,17</dd>
+                </div>
+                <div>
+                  <dt>출연</dt>
+                  <dd>라이캣, 자바독, 소울곰</dd>
+                </div>
+              </dl>
+            </article>
+            <a class="movie-reserve" href="">예매하기</a>
+            <a class="movie-preview" href="">예고편</a>
+          </li>
+          <!-- 목록7 : 파이게임 어드벤처 -->
+          <li>
+            <article>
+              <h3 class="sr">영화 정보 상세 보기</h3> <!-- 타이틀 : 접근성 -->
+              <a href="">
+                <img class="img-size" src="images/포스터_파이게임.jpg" alt="파이게임 어드벤처">
+                <strong>파이게임 어드벤처</strong>
+              </a>
+              <dl class="movie-info">
+                <div class="movie-info-genre">
+                  <dt>개요</dt>
+                  <dd>판타지액션</dd>
+                </div>
+                <div class="movie-info-star">
+                  <dt>평점</dt>
+                  <dd>8.55</dd>
+                </div>
+              </dl>
+              <dl class="movie-info-two">
+                <div>
+                  <dt>개봉</dt>
+                  <dd>2021.04.05</dd>
+                </div>
+                <div>
+                  <dt>출연</dt>
+                  <dd>게리씨, 파이썬</dd>
+                </div>
+              </dl>
+            </article>
+            <a class="movie-reserve" href="">예매하기</a>
+            <a class="movie-preview" href="">예고편</a>
+          </li>
+          <!-- 목록8 : MBTI는 내 운명 -->
+          <li>
+            <article>
+              <h3 class="sr">영화 정보 상세 보기</h3> <!-- 타이틀 : 접근성 -->
+              <a href="">
+                <img class="img-size" src="images/포스터_MBIT.png" alt="MBTI는 내 운명">
+                <strong>MBTI는 내 운명</strong>
+              </a>
+              <dl class="movie-info">
+                <div class="movie-info-genre">
+                  <dt>개요</dt>
+                  <dd>로맨스</dd>
+                </div>
+                <div class="movie-info-star">
+                  <dt>평점</dt>
+                  <dd>9.02</dd>
+                </div>
+              </dl>
+              <dl class="movie-info-two">
+                <div>
+                  <dt>개봉</dt>
+                  <dd>2021.04.12</dd>
+                </div>
+                <div>
+                  <dt>출연</dt>
+                  <dd>라이캣, 게리씨, 자바독</dd>
+                </div>
+              </dl>
+            </article>
+            <a class="movie-reserve" href="">예매하기</a>
+            <a class="movie-preview" href="">예고편</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <!-- 기업 정보 -->
+  <footer id="company_info">
+    <h2 class="sr">기업 정보</h2> <!-- 타이틀 : 접근성 -->
+    <strong>Jungle Cinema</strong>
+    <div class="company_info_detail">
+      <dl>
+        <dt class="sr">회사명</dt>
+        <dd class="strong">(주) 정글 시네마</dd>
+        <dt>대표</dt>
+        <dd>라이언</dd>
+        <dt>사업자 번호</dt>
+        <dd>000-0000-0000</dd>
+        <dt class="sr">업종</dt>
+        <dd class="strong">광고 영화 및 비디오물 제작업</dd>
+        <dt>주소</dt>
+        <dd>서울특별시</dd>
+      </dl>
+      <small>ⓒ The Jungle</small>
+    </div>
+    <!-- Question 2: 웹 접근성을 위해 text를 적어서 날려주는 것 보다 <img>대체 텍스트로 설명해주면 해결되는 부분 아닌가? -->
+    <!-- 
+    <ul class="sns-box">
+      <li><a href="">트위터</a></li>
+      <li><a href="">인스타그램</a></li>
+      <li><a href="">페이스북</a></li>
+    </ul> 
+    -->
+    <!-- Answer 2: 좋은 접근이다! CSS를 더 깔끔하게 만들어 줄 수 있고 <a>태그에 text값을 날리고 background-img;값을 주는 것도 하나의 방법이라고 생각하자. -->
+    <ul class="sns-box">
+      <li><a href=""><img class="sns-link" src="images/twitter.png" alt="트위터로 이동합니다"></a></li>
+      <li><a href=""><img class="sns-link" src="images/instagram.png" alt="인스타그램으로 이동합니다"></a></li>
+      <li><a href=""><img class="sns-link" src="images/facebook.png" alt="페이스북으로 이동합니다"></a></li>
+    </ul>
+  </footer>
+</body>
+</html>
