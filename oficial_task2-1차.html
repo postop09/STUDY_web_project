@@ -1,0 +1,99 @@
+<!-- 문제점/생각해볼 점
+  1. <input placeholder>에만 회색 글씨를 주어야 하는데 전체 글씨에 회색 글씨를 줌
+  2. <button>태그의 type 명시 안함
+  3. <img>태그에 가상요소 스타일 적용이 안된다?
+  4. 가상요소 background가 왜 적용이 안될까???
+  5. <form>, <fieldset>의 이용
+  6. <blockquote>의 사용: 진짜 인용문이 아니어도...? cite값 없어도 된다?
+  7. 더 간편하고, 뚜렷한 의미전달을 위한 마크업을 항상 생각하자.
+  8. 미디어쿼리 적용이 왜 안되지...? 
+  9. 피그마와 정확히 일치하지 않는 레이아웃 -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1만 시간의 법칙</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/oficial_task2-1차.css">
+</head>
+<body>
+  <!-- 헤더 : 타이틀 -->
+  <header>
+    <h1 class="sr">1만 시간의 법칙</h1>
+    <img src="img/title.png" alt="" class="img_title">
+    <p>"연습은 어제의 당신보다 당신을 더 낫게 만든다."</p> <!--  <q>태그 이용을 고려해보는 것도? -->
+  </header>
+
+  <!-- 메인 : 콘텐츠 소개 및 입력 -->
+  <main>
+    <h2 class="sr">1만 시간이란</h2>
+    <article> <!-- <blockquote>로 묶어도 괜찮아 보인다 -->
+      <h3 class="sr">1만 시간 소개</h3>
+      <p><strong>1만 시간의 법칙</strong>은</p>
+      <p>어떤 분야의 전문가가 되기 위해서는</p>
+      <p>최소한 1만 시간의 훈련이 필요하다는 법칙이다</p>
+    </article>
+
+    <!-- 섹션1 : 콘텐츠 입력 -->
+    <section id="content_input">
+      <h3 class="sr">콘텐츠 입력</h3>
+      <!-- 전체를 <form> 태그로 한 번 묶는다?? <fieldset> 태그 이용?? -->
+      <!-- <p>태그로 묶고 해결과정으로 실습 해보자. -->
+        <!-- <p>
+          <h4>prectice</h4>
+          나는
+          <input type="text" placeholder="예)프로그래밍" class="">
+          전문가가 될 것이다.
+        </p> -->
+      <article class="specialist">
+        <h4 class="sr">나의 목표</h4>
+        <p>나는</p> <!-- 굳이 p태그를 두 번 넣지 않고 부모속성에 효과를 주면 될 것 같다. -->
+        <input type="text" placeholder="예)프로그래밍" class="specialist_input">
+        <p>전문가가 될 것이다.</p>
+      </article>
+      <article>
+        <h4 class="sr">목표를 향한 계획</h4>
+        <p class="media_text">그래서 앞으로 매일 하루에</p>
+        <input type="number" placeholder="예)5" class="input_hours"> <!-- min/max값을 설정!! -->
+        <p>시간씩 훈련할 것이다.</p>
+      </article>
+      <div>
+        <a href="#">나는 며칠 동안 훈련을 해야 1만 시간이 될까?</a>
+        <img src="img/click.png" alt="" class="result_img_click"> <!--  가상요소로 줘도 괜찮을 것같다. -->
+      </div>
+    </section>
+
+    <!-- 섹션2 : 결과 표시 -->
+    <section id="content_result">
+      <h3 class="sr">결과 확인</h3>
+      <article>
+        <h4 class="sr">내 결과</h4>
+        <p>당신은 <strong>프로그래밍</strong> 전문가가 되기 위해서</p>
+        <p>대략 <strong>1250</strong> 일 이상 훈련하셔야 합니다! :)</p>
+      </article>
+      <div class="content_result_btn">
+        <button class="btn_training">훈련하러 가기 GO!GO!</button> <!-- 버튼에는 타입이 들어가야 한다! type=button -->
+        <button class="btn_sharing">공유하기</button>
+      </div>
+    </section>
+  </main>
+  
+  <!-- 푸터 : 콘텐츠 정보 -->
+  <footer>
+    <h2 class="sr">콘텐츠 정보</h2>
+    <img src="img/logo.png" alt="위니브 로고">
+    <!-- 부모를 <p>로 묶고, 자식을 <small>로 나누어도 괜찮았겠다. -->
+    <div>
+      <small>※ 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 WeNiv에 있습니다.</small>
+      <small>수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.</small>
+    </div>
+  </footer>
+</body>
+</html>

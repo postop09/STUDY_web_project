@@ -1,0 +1,405 @@
+@font-face {
+    font-family: 'OTEnjoystoriesBA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    src: url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2") format('woff2'),
+    url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff") format('woff'),
+    url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf") format('opentype');
+}
+
+* {
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: rgb(248, 235, 211);
+}
+body {
+    background-color: #5b2386;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sr {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+}
+
+/* 헤더 */
+header {
+    font-family: 'OTEnjoystoriesBA';
+}
+header .img_title {
+    width: 564px;
+    height: 112px;
+    margin-top: 195px;
+}
+/* 왜 백그라운드 이미지가 안 먹을까?? */
+/* img 태그 뒤로 붙였을 때는 아얘 인식도 안된다. MDN문서 함 봐야할 듯 하다(된다?!) */
+/* 가상요소를 감싸는 상위 태그에 relative값을 주는 것도 참고 */
+header p::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    bottom: 86px;
+    left: 151px;
+    width: 265px;
+    height: 265px;
+    background: url(../img/clock.png) no-repeat; /* ['../' : 현재 폴더에서 상위폴더로] 를 붙여야한다...와나... */
+    background-size: cover;
+    z-index: -1;
+}
+header p {
+    color: #F5DF4D;
+    margin-top: 122px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+}
+
+/* 메인 : 콘텐츠 소개 및 입력 */
+main {
+    font-family: 'GmarketSansMedium';
+}
+main > article {
+    width: 373px;
+    height: 85px;
+    margin: 80px auto 0;
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+    position: relative;
+}
+main > article::after {
+    content: '';
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 493px;
+    height: 96px;
+    position: absolute;
+    top: 13px;
+    left: -60px;
+    background: url("../img/quotes.png") no-repeat;
+}
+main > article > p strong {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* 섹션1 : 콘텐츠 입력 */
+#content_input {
+    margin-top: 102px;
+    text-align: center;
+}
+#content_input article{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+#content_input .specialist {
+    margin-bottom: 27px;
+}
+#content_input article input {
+    font-family: 'GmarketSansMedium';
+    border-style: none;
+    border-radius: 7px;
+    color: #BABCBE;
+    width: 228px;
+    height: 57px;
+    margin: 0 17px;
+    padding: 17px 41px 16px 39px;
+    font-size: 24px;
+}
+#content_input > div {
+    position: relative;
+}
+#content_input a {
+    /* border: 1px solid red; */
+    border-radius: 56px;
+    display: inline-block;
+    background-color: #FCEE21;
+    color: #5B2386;
+    width: 565px;
+    height: 66px;
+    margin-top: 115px;
+    padding: 21px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.result_img_click {
+    display: inline-block;
+    width: 64px;
+    height: 72px;
+    position: absolute;
+    top: 129px;
+    right: 29px;
+}
+/* 섹션2 : 결과 표시 */
+#content_result {
+    margin-top: 149px;
+    text-align: center;
+}
+#content_result article {
+    font-size: 24px;
+}
+#content_result article p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 17px;
+}
+#content_result article strong {
+    margin: 0 12px;
+    font-size: 72px;
+    font-weight: bold;
+}
+.content_result_btn {
+    margin-top: 127px;
+}
+.btn_training {
+    border-style: none;
+    border-radius: 56px;
+    background-color: #FCEE21;
+    color: #5B2386;
+    width: 356px;
+    height: 66px;
+    margin-right: 18px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn_sharing {
+    border-style: none;
+    border-radius: 56px;
+    background-color: #FFFFFF;
+    color: #5B2386;
+    width: 191px;
+    height: 66px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* 푸터 : 콘텐츠 정보 */
+footer {
+    font-family: 'GmarketSansMedium';
+    text-align: center;
+    margin-top: 130px;
+}
+footer img {
+    width: 125px;
+    height: 25px;
+    margin-bottom: 25px;
+}
+footer div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+    font-size: 12px;
+    line-height: 17.38px;
+}
+
+/* 미디어 쿼리는 반드시 CSS의 마지막에 작성한다! */
+/* 미디어 쿼리 */
+@media screen and (max-width:800px) {
+    /* 헤더 */
+header .img_title {
+    /* border: 1px solid red; */
+    width: 267px;
+    height: 53px;
+    margin: 76px 46px 0 47px;
+}
+header p::before {
+    content: '';
+    /* border: 1px solid red; */
+    display: inline-block;
+    position: absolute;
+    bottom: 55px;
+    left: 116px;
+    width: 125px;
+    height: 125px;
+}
+header p {
+    color: #F5DF4D;
+    margin-top: 69px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 24.2px;
+    position: relative;
+}
+
+/* 메인 : 콘텐츠 소개 및 입력 */
+main {
+    font-family: 'GmarketSansMedium';
+}
+main > article {
+    width: 290px;
+    height: 68px;
+    margin: 62px auto 0;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    position: relative;
+}
+main > article::after {
+    content: '';
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 302px;
+    height: 48px;
+    position: absolute;
+    top: 14px;
+    left: -6px;
+    background-size: contain;
+}
+main > article > p strong {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 섹션1 : 콘텐츠 입력 */
+#content_input {
+    margin-top: 62px;
+    text-align: center;
+}
+#content_input article{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    position: relative;
+}
+#content_input .specialist {
+    margin-bottom: 50px;
+}
+#content_input article input {
+    font-family: 'GmarketSansMedium';
+    border-style: none;
+    border-radius: 7px;
+    color: #BABCBE;
+    width: 156px;
+    height: 37px;
+    margin: 0 4px;
+    padding: 12px 35px 11px;
+    font-size: 14px;
+}
+#content_input .media_text {
+    position: absolute;
+    bottom: 56px;
+}
+#content_input > div {
+    position: relative;
+}
+#content_input a {
+    /* border: 1px solid red; */
+    border-radius: 13px;
+    display: inline-block;
+    background-color: #FCEE21;
+    color: #5B2386;
+    width: 241px;
+    height: 68px;
+    margin-top: 49px;
+    padding: 19px 36.5px 17px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.result_img_click {
+    display: inline-block;
+    width: 43px;
+    height: 48px;
+    position: absolute;
+    top: 79px;
+    right: -6px;
+}
+/* 섹션2 : 결과 표시 */
+#content_result {
+    margin-top: 64px;
+    text-align: center;
+}
+#content_result article {
+    font-size: 14px;
+}
+#content_result article p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 17px;
+}
+#content_result article strong {
+    margin: 0 8px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.content_result_btn {
+    margin-top: 55px;
+}
+.btn_training {
+    border-style: none;
+    border-radius: 56px;
+    background-color: #FCEE21;
+    color: #5B2386;
+    width: 186px;
+    height: 40px;
+    margin-right: 13px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn_sharing {
+    border-style: none;
+    border-radius: 56px;
+    background-color: #FFFFFF;
+    color: #5B2386;
+    width: 92px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* 푸터 : 콘텐츠 정보 */
+footer {
+    font-family: 'GmarketSansMedium';
+    text-align: center;
+    margin-top: 83px;
+}
+footer img {
+    width: 91px;
+    height: 18px;
+    margin-bottom: 17px;
+}
+footer div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+    font-size: 9px;
+    line-height: 13.03px;
+}
+}
