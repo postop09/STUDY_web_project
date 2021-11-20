@@ -1,0 +1,59 @@
+<!-- 문제점/생각해볼 점
+  1. nth-child;의 순서 기준??
+  2. <input>-<label>태그와 연결성
+  3. 가상 요소로 스타일을 준 체크박스에 포커스 가시성 문제
+  4. alt값 구체적으로 -->
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weniv Login</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="oficial_task3_style.css">
+</head>
+<!-- 모달창은 같은 페이지 안에 구성시키면 된다. <section>으로 묶기 -->
+    <!-- 모달: 뒷페이지가 살아있는 것 / 팝업: 새창에서 열리는 것 -->
+    <!-- dim처리: 배경은 보통 투명도 조절을 해서 어둡게 집중 할 수 있게끔 만든다. -->
+<body>
+  <h1 class="sr">위니브 로그인 또는 회원가입</h1>
+  <article id="modal_login">
+    <h2>로그인 또는 회원가입</h2>
+    <div class="wrap_login_formbox">
+      <form action="" method="post" class="login_formbox">
+        <p>위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+        <!-- <input>은 최대한 <label>과 함께. (의미전달, 웹 접근성의 관점) -->
+        <input type="text" placeholder="아이디" required class="modal_inputbox modal_id">
+        <input type="password" placeholder="비밀번호" required class="modal_inputbox modal_pw">
+        <!-- 가상 요소로 했을 때, 포커스가 안 잡히는 문제. -->
+        <!-- 근데, 텍스트는 잡혀... 문젠데.. -->
+        <input type="checkbox" id="auto_checkbox" class="modal_checkbox">
+        <label for="auto_checkbox" class="modal_label_checkbox">로그인 상태 유지</label>
+        <input type="submit" value="로그인" class="modal_btn_login">
+      </form>
+      <div class="make_search_id">
+        <a href="" class="make_id">회원가입</a>
+        <a href="">아이디/비밀번호 찾기</a>
+      </div>
+      <section id="modal_login_other">
+        <h2 class="sr">다른 계정으로 로그인</h2>
+        <!-- 스크린리더를 구성해 놨으니 오히려 <p>태그를 가상요소로 빼는 것이 더 좋지 않을까? -->
+        <p>또는</p>
+        <ul>
+          <li class="login_google"><a href="">구글 계정으로 로그인</a></li>
+          <li class="login_facebook"><a href="">페이스북 계정으로 로그인</a></li>
+          <li class="login_naver"><a href="">네이버 계정으로 로그인</a></li>
+          <li class="login_kakao"><a href="">카카오톡 계정으로 로그인</a></li>
+        </ul>
+      </section>
+    </div>
+    <!-- 구체적인 alt값이 좋음: alt="로그인 창 닫기" -->
+    <!-- 혹은 <img>말고 <span>으로 묶어서 '로그인 창 닫기'텍스트 날려주고, background 잡기 -->
+    <button type="button" class="modal_close"><img src="img/close.png" alt="창 닫기"></button>
+  </article>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!-- 개선방안
+  1. MDN/W3c참고, <input>과 <label>개념, 사용법 확인
+    가. 스크린리더기를 직접 이용해보며, 문제점과 보완점 파악
+  2. nth-child; 강사님께 질문을 통한 부족한 점 정리
+  3. MDN참고, outline;속성 파악/정리 
+  4. 코드 2차 작성 진행
+  5. 강사님의 수업을 들으며 추가로 참고할 점 정리
+  6. 최종 코딩 정리 -->
+
+<!-- 배운점/느낀점
+  1. nth-child: 부모 입장에서 자식 순서를 생각해라.
+    가. <div>
+          <strong></strong>
+          <p></p> - 잘못 선택되는 자식
+          <p></p> - 선택 하고자 하는 자식!
+        </div>
+    나. <p>중에 2번째 자식: div p:nth-child(2) - 잘못된 생각
+    다. <div>의 세번째 자식인 p: div p:nth-child(3)
+  2. <input>-<label>
+    가. 반드시 붙여야 하는 것은 확인하지 못하였으나, 접근성에 도움이 됌.
+    나. 스크린리더기 사용 결과, <label>text</label>은 물론, placeholder 속성도 읽는다.
+    다. 구체적인 레이블을 붙여주면 더 좋을 것같음! ex) <label>아이디 입력</label>
+  3. 가상요소 스타일에 outline;속성 주기
+    가. outline을 의도적으로 표시할 수 있다. 크기, 테두리 등 스타일 포함.
+    나. 접근성 및 포커스 가시성 문제 해결
+    다. 그러나 클릭했을 때도 보이는 점에서는 디자인을 헤친다고 느껴질 수 있겠다.
+    라. outline이 없을 때도 스크린리더기는 정상적으로 인식하고 읽어내려 간다.
+  4. alt값: '창 닫기'와 같은 단순한 설명보다는 '로그인 창 닫기'라고 구체적으로 적어주는 것이 좋겠다.
+  5. 웹문서 중 <main>은 단 한번만 사용해야 한다.
+    가. 모달창은 같은 페이지 안에 구성시키면 된다. JS로 다루기 위해 구획 <section> 묶기.
+    나. 모달: 현재 창에서 표시되고, 뒷페이지가 살아있는 것 / 팝업: 새창에서 문서가 열리는 것 -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modal</title>
+  <link rel="stylesheet" href="task3_style_2차.css">
+</head>
+<body>
+  <!-- 위니브 로그인 -->
+  <section id="section_login" class="section_login">
+    <h1 class="text_hide">위니브 로그인 하기</h1>
+    <img src="img/weniv-logo.png" alt="">
+    <p>위니브를 더 즐겁고 편리하게 이용하세요</p>
+    <button type="button">로그인</button>
+  </section>
+  <!-- 로그인 모달창 -->
+  <section id="section_modal" class="section_modal on">
+    <h2 class="text_hide">로그인 또는 회원가입 또는 SNS 계정으로 로그인</h2>
+    <div class="modal_wrap">
+      <article id="modal_login" class="modal_login">
+        <h3>로그인 또는 회원가입</h3>
+        <form action="" method="post" class="form_input">
+          <p>위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+          <label><input type="text" placeholder="아이디" required class="input_item input_error"></label>
+          <strong class="text_error">아이디를 입력해 주세요.</strong>
+          <label><input type="password" placeholder="비밀번호" required class="input_item input_pw"></label>
+          <strong class="text_error">아이디 혹은 비밀번호가 일치하지 않습니다.</strong>
+          <input type="checkbox" id="input_checkbox" class="input_checkbox">
+          <label for="input_checkbox" class="label_checkbox">로그인 상태 유지</label>
+          <button type="submit">로그인</button>
+        </form>
+        <a href="#none" class="btn_new">회원가입</a>
+        <a href="#none">아이디/비밀번호 찾기</a>
+      </article>
+      <article id="sns_modal" class="sns_modal">
+        <p>또는</p>
+        <h3 class="text_hide">SNS계정으로 로그인</h3>
+        <ul class="list_sns">
+          <li><a href="" class="btn_google">구글 계정으로 로그인</a></li>
+          <li><a href="" class="btn_facebook">페이스북 계정으로 로그인</a></li>
+          <li><a href="" class="btn_naver">네이버 계정으로 로그인</a></li>
+          <li><a href="" class="btn_kakao">카카오톡 계정으로 로그인</a></li>
+        </ul>
+      </article>
+      <button type="button" class="btn_close"><img src="img/close.png" alt="로그인 창 닫기"></button>
+    </div>
+  </section>
+</body>
+</html>

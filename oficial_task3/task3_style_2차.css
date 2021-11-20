@@ -1,0 +1,310 @@
+@charset "utf-8";
+@font-face {
+  font-family: SpoqaHanSansNeo-Medium;
+  src: url(SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Medium.ttf);
+}
+@font-face {
+  font-family: SpoqaHanSansNeo-Bold;
+  src: url(SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Bold.ttf);
+}
+
+/* reset */
+* {
+  font-family: SpoqaHanSansNeo-Medium;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  color: black;
+}
+
+/* util */
+.text_hide {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+/* style */
+/* 섹션1: 위니브 로그인 */
+#section_login {
+  border: 1px solid #C4C4C4;
+  width: 500px;
+  margin: 280px auto 0;
+  text-align: center;
+}
+.section_login img {
+  display: inline-block;
+  width: 138px;
+  height: 40px;
+  margin: 30px 0 28px;
+}
+.section_login p {
+  font-size: 16px;
+}
+.section_login button {
+  border-style: none;
+  border-radius: 5px;
+  width: 440px;
+  height: 60px;
+  margin: 32px 0 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #2F80ED;
+}
+
+/* 섹션2: 로그인 모달창 */
+/* 가상요소에 인덱스 값으로는 왜 조정이 안될까? */
+#section_modal::before {
+  display: block;
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+.section_modal {
+  display: none;
+}
+.section_modal.on {
+  display: block;
+}
+.section_modal .modal_wrap {
+  border: 1px solid #C4C4C4;
+  border-radius: 10px;
+  width: 520px;
+  text-align: center;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+.modal_wrap h3 {
+  border-bottom: 1px solid #C4C4C4;
+  font-size: 16px;
+  padding: 20px 0 18px;
+  font-weight: 500;
+}
+.modal_wrap .form_input {
+  padding: 0 24px;
+  text-align: left;
+}
+.modal_wrap .form_input p {
+  font-size: 20px;
+  margin: 26px 0 24px;
+}
+.form_input .input_item {
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
+  width: 472px;
+  height: 50px;
+  padding-left: 16px;
+  font-size: 16px;
+}
+.form_input .input_pw {
+  margin-top: 10px;
+}
+/* 자바스크립트 */
+.form_input .input_item.input_error {
+  border: 2px solid #F4492E;
+}
+.form_input .text_error {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #F4492E;
+}
+/* 자바스크립트 끝 */
+.form_input .input_checkbox {
+  margin-top: 16px;
+  opacity: 0;
+}
+.form_input .label_checkbox {
+  font-size: 16px;
+  color: #767676;
+  position: relative;
+  padding-left: 15px;
+}
+.form_input .label_checkbox::before {
+  display: inline-block;
+  content: '';
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 0;
+  left: -15px;
+  background-image: url(img/check-box-none.png);
+  transition: background .2s;
+}
+.form_input .input_checkbox:checked + .label_checkbox::before {
+  background-image: url(img/check-box.png);
+}
+.form_input .input_checkbox:focus + .label_checkbox::before{
+  outline: 2px auto black;
+  outline-offset: 2px;
+} 
+.modal_wrap .form_input button {
+  border-style: none;
+  border-radius: 5px;
+  width: 472px;
+  height: 50px;
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #2F80ED;
+  cursor: pointer;
+}
+.modal_wrap .form_input button:active {
+  background-color: rgb(52, 117, 202);
+}
+.modal_login a {
+  font-size: 14px;
+  color: #767676;
+}
+.modal_login .btn_new::after {
+  display: inline-block;
+  content: '';
+  width: 1px;
+  height: 16px;
+  margin: 0 8px 0 12px;
+  background-color: #767676;
+  position: relative;
+  top: 3px;
+  left: 0;
+}
+.sns_modal p{
+  margin: 30px 0 20px;
+  font-size: 14px;
+  color: #767676;
+}
+.sns_modal p::before {
+  display: inline-block;
+  content: '';
+  width: 210px;
+  height: 1px;
+  margin-right: 12px;
+  background-color: #C4C4C4;
+  vertical-align: middle;
+}
+.sns_modal p::after {
+  display: inline-block;
+  content: '';
+  width: 210px;
+  height: 1px;
+  margin-left: 12px;
+  background-color: #C4C4C4;
+  vertical-align: middle;
+}
+#sns_modal {
+  padding: 0 24px 25px;
+}
+.sns_modal .list_sns a {
+  display: inline-block;
+  border-radius: 5px;
+  width: 472px;
+  height: 50px;
+  padding-top: 15px;
+  color: #767676;
+}
+.list_sns li:not(li:last-child) {
+  margin-bottom: 10px;
+}
+.list_sns .btn_google {
+  border: 1px solid #767676;
+  box-shadow: 1px 1px 3px #767676;
+  position: relative;
+}
+.list_sns .btn_google:active {
+  box-shadow: 0px 0px 1px #767676;
+}
+.list_sns .btn_google::before {
+  display: inline-block;
+  content: '';
+  width: 21px;
+  height: 22px;
+  background-image: url(img/Google.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 13px;
+  left: 12px;
+}
+.list_sns .btn_facebook {
+  border: 1px solid #2D9CDB;
+  box-shadow: 1px 1px 3px #2D9CDB;
+  position: relative;
+}
+.list_sns .btn_facebook:active {
+  box-shadow: 0px 0px 1px #2D9CDB;
+}
+.list_sns .btn_facebook::before {
+  display: inline-block;
+  content: '';
+  width: 13px;
+  height: 24px;
+  background-image: url(img/facebook.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 13px;
+  left: 17px;
+}
+.list_sns .btn_naver {
+  border: 1px solid #00BF18;
+  box-shadow: 1px 1px 3px #00BF18;
+  position: relative;
+}
+.list_sns .btn_naver:active {
+  box-shadow: 0px 0px 1px #00BF18;
+}
+.list_sns .btn_naver::before {
+  display: inline-block;
+  content: '';
+  width: 22px;
+  height: 22px;
+  background-image: url(img/naver.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 13px;
+  left: 12px;
+}
+.list_sns .btn_kakao {
+  border: 1px solid #F2C94C;
+  box-shadow: 1px 1px 3px #F2C94C;
+  position: relative;
+}
+.list_sns .btn_kakao:active {
+  box-shadow: 0px 0px 1px #F2C94C;
+}
+.list_sns .btn_kakao::before {
+  display: inline-block;
+  content: '';
+  width: 22px;
+  height: 22px;
+  background-image: url(img/kakao.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 13px;
+  left: 12px;
+}
+/* 로그인 창 닫기 */
+.modal_wrap .btn_close {
+  border-style: none;
+  width: 16px;
+  height: 16px;
+  background: none;
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  cursor: pointer;
+}

@@ -1,0 +1,316 @@
+@font-face {
+  font-family: SpoqaHanSansNeo-Medium;
+  src: url(SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Medium.ttf);
+}
+@font-face {
+  font-family: SpoqaHanSansNeo-Bold;
+  src: url(SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Bold.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+body {
+  font-family: SpoqaHanSansNeo-Medium;
+}
+.sr {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+
+/* 로그인 */
+.login_index {
+  border: 1px solid #C4C4C4;
+  width: 500px;
+  height: 240px;
+  margin: 280px auto 0;
+  text-align: center;
+}
+.login_index .logo_img {
+  width: 138px;
+  height: 40px;
+  margin: 30px 0 28px;
+}
+.login_index .login_txt {
+  line-height: 20px;
+}
+.login_index .login_btn {
+  display: inline-block;
+  border-radius: 5px;
+  width: 440px;
+  height: 60px;
+  margin: 32px 0 30px;
+  padding-top: 17px;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 27.54px;
+  color: white;
+  background-color: #2F80ED;
+}
+
+/* 모달_로그인 */
+#modal_login {
+  border: 1px solid #C4C4C4;
+  border-radius: 10px;
+  width: 520px;
+  height: 712px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+#modal_login h2 {
+  border-bottom: 1px solid #C4C4C4;
+  padding: 20px 0 18px;
+  font-weight: 500;
+}
+.wrap_login_formbox {
+  padding: 26px 24px 25px;
+  text-align: left;
+}
+.login_formbox p {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.login_formbox .modal_inputbox {
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
+  width: 472px;
+  height: 50px;
+  padding: 15px;
+}
+.login_formbox .modal_pw {
+  margin: 10px 0px 16px;
+}
+
+/* .login_formbox input[type="checkbox"] {
+  display: none;
+}
+.login_formbox input[type="checkbox"] + label::before {
+  display: inline-block;
+  content: '';
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  vertical-align: bottom;
+  background: url(img/check-box-none.png);
+  background-size: contain;
+  cursor: pointer;
+  transition: all .1s;
+}
+.login_formbox input[type="checkbox"]:checked + label::before {
+  content: '';
+  background-image: url(img/check-box.png);
+} */
+
+/* .login_formbox .modal_checkbox {
+  opacity: .1;
+}
+.login_formbox .modal_checkbox:checked + .modal_label_checkbox::before{
+  background-image: url(img/check-box.png);
+}
+.login_formbox .modal_label_checkbox {
+  position: relative;
+  padding-left: 8px;
+}
+.login_formbox .modal_label_checkbox::before {
+  display: inline-block;
+  content: '';
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  vertical-align: bottom;
+  background-image: url(img/check-box-none.png);
+  position: absolute;
+  top: -1px;
+  left: -20px;
+} */
+.login_formbox .modal_checkbox {
+  opacity: 0;
+  margin-right: 10px;
+}
+.login_formbox .modal_label_checkbox {
+  position: relative;
+}
+.login_formbox .modal_label_checkbox::before {
+  display: inline-block;
+  content: '';
+  width: 22px;
+  height: 22px;
+  background-image: url(img/check-box-none.png);
+  position: absolute;
+  top: 0;
+  left: -27px;
+  transition: all .2s;
+}
+/* .login_formbox .modal_checkbox:focus + .modal_label_checkbox::before {
+  outline: auto;
+} */
+.login_formbox .modal_checkbox:checked + .modal_label_checkbox::before {
+  background-image: url(img/check-box.png);
+}
+/* checkbox는 없애주고, label에 스타일을 주어서 버튼을 삽입하는 방법을 이용한다 */
+/* 포커싱되는게 가시적이지 않다. outline 속성을 활용해보자 */
+/* ㄴ문제점: 활성화 이후에도 outline이 살아있다. */
+/* 네이버도 포커스는 주지 않았다. 못한건가? */
+.login_formbox .modal_btn_login {
+  border-style: none;
+  border-radius: 5px;
+  width: 472px;
+  height: 50px;
+  margin: 21px 0 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #2F80ED;
+  cursor: pointer;
+}
+.login_formbox .modal_btn_login:active {
+  background-color: #2971cf;
+}
+.wrap_login_formbox .make_search_id {
+  text-align: center;
+}
+.wrap_login_formbox .make_search_id > a {
+  font-size: 14px;
+  color: #767676;
+}
+.make_search_id .make_id::after {
+  display: inline-block;
+  content: '';
+  width: 1px;
+  height: 18px;
+  margin: 0 8px 0 12px;
+  background-color: #767676;
+  vertical-align: bottom;
+  cursor: default;
+}
+
+/* 모달 다른 계정으로 로그인 */
+#modal_login_other {
+  text-align: center;
+}
+#modal_login_other > p {
+  margin: 30px 0px 20px;
+  font-size: 14px;
+  color: #767676;
+}
+#modal_login_other > p::before {
+  display: inline-block;
+  content: '';
+  width: 210px;
+  height: 1px;
+  margin-right: 12px;
+  background-color: #C4C4C4;
+  vertical-align: middle;
+}
+#modal_login_other > p::after {
+  display: inline-block;
+  content: '';
+  width: 210px;
+  height: 1px;
+  margin-left: 12px;
+  background-color: #C4C4C4;
+  vertical-align: middle;
+}
+#modal_login_other li a {
+  display: inline-block;
+  border-radius: 5px;
+  width: 472px;
+  height: 50px;
+  padding: 15px;
+  position: relative;
+}
+#modal_login_other li:not(.login_kakao) {
+  margin-bottom: 10px;
+}
+#modal_login_other .login_google a {
+  border: 1px solid #767676;
+}
+#modal_login_other .login_google a:hover {
+  box-shadow: 1px 1px 5px 1px #c5c5c5;
+}
+/* 포지션 말고 float는 어땠을까? */
+.login_google a::before {
+  display: inline-block;
+  content: '';
+  width: 21px;
+  height: 21.46px;
+  background-image: url(img/Google.png);
+  background-size: cover;
+  position: absolute;
+  top: 14.27px;
+  left: 15.5px;
+}
+#modal_login_other .login_facebook a {
+  border: 1px solid #2D9CDB;
+}
+#modal_login_other .login_facebook a:hover {
+  box-shadow: 1px 1px 5px 1px #bedff1;
+}
+.login_facebook a::before {
+  display: inline-block;
+  content: '';
+  width: 12.83px;
+  height: 23.33px;
+  background-image: url(img/facebook.png);
+  background-size: cover;
+  position: absolute;
+  top: 13.33px;
+  left: 19px;
+}
+#modal_login_other .login_naver a {
+  border: 1px solid #00BF18;
+}
+#modal_login_other .login_naver a:hover {
+  box-shadow: 1px 1px 5px 1px #c2f5c8;
+}
+.login_naver a::before {
+  display: inline-block;
+  content: '';
+  width: 22px;
+  height: 22px;
+  background-image: url(img/naver.png);
+  background-size: cover;
+  position: absolute;
+  top: 14px;
+  left: 15px;
+}
+#modal_login_other .login_kakao a {
+  border: 1px solid #F2C94C;
+}
+#modal_login_other .login_kakao a:hover {
+  box-shadow: 1px 1px 5px 1px #f3e3b3;
+}
+.login_kakao a::before {
+  display: inline-block;
+  content: '';
+  width: 21px;
+  height: 21px;
+  background-image: url(img/kakao.png);
+  background-size: cover;
+  position: absolute;
+  top: 14.5px;
+  left: 15.5px;
+}
+
+/* 모달창 닫기 */
+#modal_login .modal_close {
+  border-style: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+.modal_close img {
+  width: 16px;
+  height: 16px;
+}
