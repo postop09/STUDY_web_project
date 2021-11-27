@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clock</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <a href="#main_index" class="img_scroll"><img src="img/icon_scroll.png" alt="메인으로 바로가기"></a>
+    <a href="#main_index" class="text_hide">기업정보 바로가기</a>
+  </div>
+  <header id="header_index" class="header_index">
+    <h1 class="text_hide">clock 페이지에 온 것을 환영합니다.</h1>
+    <nav>
+      <ul class="list_nav">
+        <li><a href=""><img src="img/img_main.png" alt="" class="img_logo"></a></li>
+        <li><a href=""><span class="color_crimson">C</span>OLLECTION</a></li>
+        <li><a href=""><span class="color_crimson">A</span>BOUT ME</a></li>
+        <li><a href=""><span class="color_crimson">S</span>TORE</a></li>
+        <li><a href=""><img src="img/icon_user.png" alt="" class="nav_login"></a></li>
+      </ul>
+    </nav>
+    <div class="part_text">
+      <strong>3D PRINTED EYEWEAR</strong>
+      <p>glasses in which you will fall in love</p>
+      <a href="">CHECK COLLECTION</a>
+      <ul class="list_sns">
+        <li><a href=""><img src="img/icon_fb.png" alt="페이스북으로 이동하기" class="icon_item"></a></li>
+        <li><a href=""><img src="img/icon_insta.png" alt="인스타그램으로 이동하기" class="icon_item"></a></li>
+        <li><a href=""><img src="img/icon_twit.png" alt="트위터로 이동하기" class="icon_item"></a></li>
+        <li><a href=""><img src="img/icon_github.png" alt="깃허브로 이동하기" class="icon_item"></a></li>
+      </ul>
+    </div>
+    <!-- 간단한 애니메이션 추가 -->
+    <div class="border_style"></div>
+  </header>
+  <main id="main_index" class="main_index">
+    <h2 class="text_hide">포트폴리오 및 스킬 소개</h2>
+    <section>
+      <h3 class="text_hide">안경 소개</h3>
+      <div class="part_intro">
+        <img src="img/img_logo.png" alt="" class="img_logo">
+        <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione!</p>
+        <p class="text_content">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+      </div>
+      <div class="part_glass">
+        <strong class="text_strong">HANDMADE FINISH</strong>
+        <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatibus doloremque reprehenderit! Exercitationem, voluptatibus laudantium?</p>
+      </div>
+    </section>
+    <section id="section_habit" class="section_habit">
+      <h3 class="text_strong">EYEWEAR THAT YOU CAN CUSTOMIZE TO YOUR OWN REQUIREMENT</h3>
+      <!-- button에 텍스를 주고, 백그라운드로 이미지 덮는 형식
+      이미지 사이즈 더 크게 하는게 좋을듯, 최소 아래랑 맞춰서. 대략 1280px ?-->
+      <!-- 개별 스타일도 고려? -->
+      <div class="part_habit">
+        <button type="button">CHALLENGE</button>
+        <button type="button">EXERCISE</button>
+        <button type="button">PHOTOGRAPH</button>
+        <button type="button">POSITIVE</button>
+      </div>
+    </section>
+    <section id="section_3d" class="section_3d">
+      <h3>PROJECT</h3>
+      <article class="article_3d">
+        <!-- 이미지와 텍스트 간격을 조금 더 띄우는게 좋을듯. 너무 답답해 보임. -->
+        <!-- 이 이미지도 백그라운드로 주면 더 좋을 것 같은데.. 그럼 <div>박스를 만들어야함.
+          아니면 다음 요소에 ::before값으로..? 더 비효율적인듯. -->
+        <img src="img/yoyo_nbg.png" alt="">
+        <div class="part_text_3d">
+          <h4 class="text_strong">3D FITTING ROOM</h4>
+          <p class="text_content">Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+          <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere doloribus tenetur possimus quod obcaecati sit itaque incidunt!</p>
+          <a href="">FITTING ROOM</a>
+        </div>
+      </article>
+      <article class="article_collection">
+        <h4>COLLECTION</h4>
+        <img src="img/img_logo.png" alt="" class="img_logo">
+        <p class="text_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio!</p>
+        <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, commodi vel.</p>
+        <p class="text_content">Lorem ipsum dolor sit amet consectetur.</p>
+      </article>
+    </section>
+    <section id="section_new" class="section_new">
+      <h3 class="text_strong">NEW STEMPUNK AND CYBERPUNK COLLECTION</h3>
+      <p class="text_content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae totam eveniet nemo eligendi perspiciatis. Cum.</p>
+      <p class="text_content">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      <p class="text_content">Lorem ipsum dolor sit amet consectetur.</p>
+      <a href="">CHECK IT</a>
+    </section>
+    <section id="section_skills" class="section_skills">
+      <h3>SKILLS</h3>
+      <!-- 카드의 크기와 간격을 더 넉넉하게 조절, 1280px 기준 -->
+      <ul class="list_skills">
+        <li>
+          <img src="img/img_html.png" alt="">
+          <strong class="text_strong">HTML</strong>
+          <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </li>
+        <li>
+          <img src="img/img_css.png" alt="">
+          <strong class="text_strong">CSS</strong>
+          <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </li>
+        <li>
+          <img src="img/img_js.png" alt="">
+          <strong class="text_strong">JavaScript</strong>
+          <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </li>
+        <li>
+          <img src="img/img_nodejs.png" alt="">
+          <strong class="text_strong">Node.js</strong>
+          <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </li>
+        <li>
+          <img src="img/img_react.png" alt="">
+          <strong class="text_strong">React.js</strong>
+          <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </li>
+        <li>
+          <img src="img/icon_github.png" alt="">
+          <strong class="text_strong">GitHub</strong>
+          <p class="text_content">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer id="footer_index" class="footer_index">
+    <h2 class="text_hide">기업 정보</h2>
+    <img src="img/img_logo.png" alt="">
+    <address></address>
+    <ul>
+      <li>
+        <a href="">
+          <img src="" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="" alt="">
+        </a>
+      </li>
+    </ul>
+    <small></small>
+  </footer>
+</body>
+</html>
+<!-- 클래스 네임 더 축약 필요함 -->
+<!-- 겹치는 스타일이 많으니까 고려해서 클래스네임 작성하자
+1. text_lg
+2. text_md
+3. text_sm -->
+<!-- css 한번 다시 쓰는 계기가 될듯. -->
