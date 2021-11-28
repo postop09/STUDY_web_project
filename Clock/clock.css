@@ -1,0 +1,110 @@
+/* animation */
+@keyframes hourPass {
+  0% {
+    transform: rotateZ(0deg);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: rotateZ(360deg);
+    transform-origin: bottom;
+  }
+}
+
+/* style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgb(158, 14, 43);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.frame::before {
+  display: block;
+  content: '';
+  width: 2px;
+  height: 3px;
+  background-color: crimson;
+  position: relative;
+  top: -11px;
+  left: 16px;
+  z-index: -2;
+}
+.frame::after {
+  display: block;
+  content: '';
+  width: 2px;
+  height: 3px;
+  background-color: crimson;
+  position: relative;
+  top: 10px;
+  right: 16px;
+  z-index: -2;
+}
+.frame_in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(158, 14, 43);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+.frame_in::before {
+  display: block;
+  content: '';
+  width: 3px;
+  height: 2px;
+  background-color: crimson;
+  position: relative;
+  top: 0;
+  left: -6px;
+  z-index: -2;
+}
+.frame_in::after {
+  display: block;
+  content: '';
+  width: 3px;
+  height: 2px;
+  background-color: crimson;
+  position: relative;
+  top: 0;
+  right: -6px;
+  z-index: -2;
+}
+.axis {
+  border-radius: 100%;
+  width: 6px;
+  height: 6px;
+  background-color: rgb(124, 12, 34);
+  position: relative;
+}
+.minute {
+  border-top-left-radius: 50%;
+  width: 2px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  top: -7px;
+  left: 2px;
+  animation: hourPass 10s infinite linear;
+  z-index: -1;
+}
+.hour {
+  border-top-left-radius: 50%;
+  width: 2px;
+  height: 7px;
+  background-color: black;
+  position: absolute;
+  top: -4px;
+  left: 2px;
+  animation: hourPass 120s infinite linear;
+  z-index: -1;
+}
